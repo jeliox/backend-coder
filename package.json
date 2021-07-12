@@ -1,17 +1,16 @@
 {
-  "name": "entrega7",
+  "name": "expressavanzado1",
   "version": "1.0.0",
   "description": "",
-  "main": "Entrega7JulioSanchez.js",
-  "type":"module",
+  "main": "entrega8.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Julio Sanchez",
   "license": "ISC",
   "dependencies": {
+    "body-parse": "^0.1.0",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1"
   }
-  
-  
 }
