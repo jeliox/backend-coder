@@ -1,0 +1,52 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<section id="tabs" class="project-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                  
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <table class="table" cellspacing="0">
+                                    <thead>
+                                       
+                                        <tr>
+                                            <th>Nombre del Producto</th>
+                                            <th>Precio</th>
+                                            <th>Imagen</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        {{#each productos}}
+                                        <tr>
+                                            <td>{{this.title}}</td>
+                                            <td> {{this.price}} </td>
+                                            <td> {{this.thumbnail}} </td>
+                                        </tr>
+                                        {{else}}
+                                        <h3>No hay productos para mostrar</h3>
+                                       {{!-- <tr>
+                                            <td>{{this.title}}</td>
+                                            <td> {{this.price}} </td>
+                                            <td> {{this.thumbnail}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{this.title}}</td>
+                                            <td> {{this.price}} </td>
+                                            <td> {{this.thumbnail}} </td> --}}
+                                        </tr>
+                                        {{/each }}
+                                    </tbody>
+                                </table>
+                            </div>
+                        
+                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"title": "iPhone 12 Pro",
+		"price": 999,
+		"thumbnail": "aqui va el url de la imagen"
+	},
+	{
+		"id": 2,
+		"title": "Samsung",
+		"price": 1899,
+		"thumbnail": "aqui va el url de la imagen"
+	},
+	{
+		"id": 3,
+		"title": "iPhone 12 Pro MAX",
+		"price": 1199,
+		"thumbnail": "aqui va el url de la imagen"
+	}
+]
