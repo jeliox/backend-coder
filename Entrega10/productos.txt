@@ -3,18 +3,12 @@
 		"id": 1,
 		"title": "iPhone 12 Pro",
 		"price": 999,
-		"thumbnail": "aqui va el url de la imagen"
+		"thumbnail": "https://cdn3.iconfinder.com/data/icons/logos-brands-3/24/logo_brand_brands_logos_apple_ios-256.png"
 	},
 	{
 		"id": 2,
 		"title": "Samsung",
 		"price": 1899,
-		"thumbnail": "aqui va el url de la imagen"
-	},
-	{
-		"id": 3,
-		"title": "iPhone 12 Pro MAX",
-		"price": 1199,
-		"thumbnail": "aqui va el url de la imagen"
+		"thumbnail": "https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/samsung-256.png"
 	}
 ]

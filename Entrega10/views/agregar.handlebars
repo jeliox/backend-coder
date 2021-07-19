@@ -1,15 +1,7 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<section id="tabs" class="project-tab">
-            <div class="container">
-                <div class="row">
-                    {{!-- <h3 class="mb-5">Agregar Producto</h3>
+<h3 class="mb-5">Agregar Producto</h3>
                     <br><br>
                     <div class="column col">
-                          <form method="POST" action="/productos">
+                          <form method="POST" action="/productos/nuevo">
                             <div class="mb-3 m-6">
                                 <label for="exampleInputEmail1" class="form-label">Producto</label>
                                 <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -24,7 +16,7 @@
                             </div>
                             <button type="submit"  id="formu"  class="btn btn-primary">Submit</button>
                         </form>
-                    </div> --}}
+                    </div>
                     <div class="col-md-12 column">
                   
                         <div class="tab-content" id="nav-tabContent">
@@ -40,25 +32,10 @@
                                     </thead>
                                     
                                     <tbody>
-                                        {{#each productos}}
-                                        <tr>
-                                            <td>{{this.title}}</td>
-                                            <td> {{this.price}} </td>
-                                            <td> <img src="{{this.thumbnail}}" width="30px" height="auto" alt="logo"></td>
-                                        </tr>
-                                        {{else}}
+                                        
                                         <h3>No hay productos para mostrar</h3>
-                                       {{!-- <tr>
-                                            <td>{{this.title}}</td>
-                                            <td> {{this.price}} </td>
-                                            <td> {{this.thumbnail}} </td>
-                                        </tr>
-                                        <tr>
-                                            <td>{{this.title}}</td>
-                                            <td> {{this.price}} </td>
-                                            <td> {{this.thumbnail}} </td> --}}
-                                        </tr>
-                                        {{/each }}
+                                     
+                                      
                                     </tbody>
                                 </table>
                             </div>
@@ -69,4 +46,13 @@
                 </div>
             </div>
         </section>
-    
+    <script >
+        let aver = document.getElementById('formu');
+        aver.addEventListener('submit',(e)=>{
+            {{!-- e.preventDefault() --}}
+            let datos = e.target; 
+            console.log(datos)
+        })
+    </script>
+
+ 

@@ -8,11 +8,9 @@ const array = JSON.parse(datos)
 const app = express()
 const PORT= 8080;
 let productos =[...array]
-console.log(productos)
 app.use(express.json())
 app.use(express.urlencoded())
 
-// <-------------- Formulario -----------------> 
 
 //llamadas a los handle bars
 app.engine('handlebars',exphbs());
@@ -20,18 +18,45 @@ app.engine('handlebars',exphbs());
 app.set('views','./views')
 
 app.set('view engine','handlebars');
-// formualrio y tabla
-app.get('/productos',(req,res)=>{
-    res.render('busqueda')
-    aBuscar= [req.body]
-   
-})
 
-app.get('/productos',(req,res)=>{
-    let output = productos.find(prod => prod.title == aBuscar.title)
-    console.log(output)
+// Get de los productos
+
+app.get('/productos',(req,res)=> {
 
     res.render('productos',{productos: productos})
+})
+
+//GET para agregar
+app.get('/productos/nuevo',(req,res)=> {
+
+    res.render('agregar')
+})
+
+
+// LLamado del POST
+app.post('/productos/nuevo',(req,res)=>{
+    let nuevoproducto = req.body;
+    console.log(nuevoproducto)
+    let control = Object.keys(nuevoproducto).length;
+    if (control > 0){
+        let idN = productos.length + 1;
+        console.log(nuevoproducto)
+        const add = {
+                "id": idN,
+                "title": nuevoproducto.title,
+                "price": nuevoproducto.price,
+                "thumbnail": nuevoproducto.thumbnail, 
+                }
+        
+    console.log(add)
+    productos.push(add)
+    let addtoJson = JSON.stringify(productos,null,'\t')
+    let dato =  fs.writeFileSync('productos.txt',addtoJson);    
+    console.log(nuevoproducto)
+    }
+    nuevoproducto = {};
+    res.redirect('/productos')
+
 })
 
 
