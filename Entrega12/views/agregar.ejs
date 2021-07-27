@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="application/javascript" src="/socket.io/socket.io.js"></script>
+<script src='../public/index.js' ></script>
+<script>
+    const socket = io()
+
+    socket.on('productos', data=>{
+
+        let add = data.forEach((prod) => {
+
+
+                                `<tbody>
+                            
+                                <tr> 
+                                    <td>${prod.title} </td>
+                                    <td>${prod.title}</td>
+                                    <td><img src="${prod.title}" width="25px" height="auto" alt=""></td>
+                                </tr>
+                                
+                             </tbody>`
+                              }  ) 
+                            
+    
+        console.log(add)
+        console.log(data)
+        socket.emit('notificacion', 'Mensaje recibido exitosamente')
+    })
+    
+</script>
+
+</head>
+<body>
+    
+<h3 class="mb-5">Agregar Producto</h3>
+<br><br>
+<div class="column col">
+      <form method="POST" action="/">
+        <div class="mb-3 m-6">
+            <label for="exampleInputEmail1" class="form-label">Producto</label>
+            <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Precio</label>
+            <input type="number" class="form-control" name="price" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 m-6">
+            <label for="exampleInputEmail1" class="form-label">thumbnail</label>
+            <input type="text" class="form-control" name="thumbnail" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <button type="submit"  id="formu"  class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<div class="col-md-12 column">
+
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <table class="table" cellspacing="0">
+                <thead>
+                   
+                    <tr>
+                        <th>Nombre del Producto</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                    </tr>
+                </thead>
+                
+                <tbody id="tabla">
+                   
+            </table>
+        </div>
+    
+
+    </div>
+</div>
+</div>
+</div>
+</section>
+<script >
+let aver = document.getElementById('formu');
+aver.addEventListener('submit',(e)=>{
+// e.preventDefault() 
+let datos = e.target; 
+console.log(datos)
+})
+</script>
+
+</body>
+</html>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+ 

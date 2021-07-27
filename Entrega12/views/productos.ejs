@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script  src="/socket.io/socket.io.js"></script>
+    
+
+<script>
+    const socket = io()
+
+    socket.on('holi', data=>{
+        
+        socket.emit('notificacion', 'Mensaje recibido exitosamente')
+    })
+</script>
+</head>
+<body>
+    
+<section id="tabs" class="project-tab">
+    <div class="container">
+        <div class="row">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <table class="table" cellspacing="0">
+                            <thead>
+                               
+                                <tr>
+                                    <th>Nombre del Producto</th>
+                                    <th>Precio</th>
+                                    <th>Imagen</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <% productos.forEach((prod) => { %>
+                                <tr> 
+                                    <td><%= prod.title %> </td>
+                                    <td><%= prod.price %></td>
+                                    <td><img src="<%= prod.thumbnail %>" width="25px" height="auto" alt=""></td>
+                               
+
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                
+        
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
+<!------ Include the above in your HEAD tag ---------->
+
+    
