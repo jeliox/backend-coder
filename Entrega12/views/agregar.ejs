@@ -9,34 +9,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="application/javascript" src="/socket.io/socket.io.js"></script>
-<script src='../public/index.js' ></script>
-<script>
-    const socket = io()
-
-    socket.on('productos', data=>{
-
-        let add = data.forEach((prod) => {
-
-
-                                `<tbody>
-                            
-                                <tr> 
-                                    <td>${prod.title} </td>
-                                    <td>${prod.title}</td>
-                                    <td><img src="${prod.title}" width="25px" height="auto" alt=""></td>
-                                </tr>
-                                
-                             </tbody>`
-                              }  ) 
-                            
-    
-        console.log(add)
-        console.log(data)
-        socket.emit('notificacion', 'Mensaje recibido exitosamente')
-    })
-    
-</script>
-
+<script src="../public/index.js"></script>
 </head>
 <body>
     
@@ -73,7 +46,7 @@
                     </tr>
                 </thead>
                 
-                <tbody id="tabla">
+                <tbody id="tabla"> </tbody>
                    
             </table>
         </div>
@@ -85,8 +58,8 @@
 </div>
 </section>
 <script >
-let aver = document.getElementById('formu');
-aver.addEventListener('submit',(e)=>{
+let aver1 = document.getElementById('formu');
+aver1.addEventListener('submit',(e)=>{
 // e.preventDefault() 
 let datos = e.target; 
 console.log(datos)
@@ -95,8 +68,3 @@ console.log(datos)
 
 </body>
 </html>
-
-
-<!------ Include the above in your HEAD tag ---------->
-
- 

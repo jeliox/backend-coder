@@ -1,12 +1,12 @@
 //Esta sera la entrega 12
 
 //llamado de modulos
-const { concatSeries } = require('async');
 const express = require('express');
 const app = express()
 const fs = require('fs');
 const datos = fs.readFileSync('productos.txt','utf-8');
 const http = require('http');
+const { SocketAddress } = require('net');
 const server = http.createServer(app);
 let io = require('socket.io')(server)
 
@@ -24,7 +24,7 @@ app.use(express.urlencoded())
 app.set('view engine','ejs');
 
 // para los del index.js
-// app.use(express.static('./public'))
+app.use('/public',express.static('./public'))
 
 // Get de los productos
 
@@ -72,5 +72,9 @@ server.listen(PORT,()=>console.log(`Server on port ${PORT}`));
 // prueba de socket
 io.on('connection',(socket)=>{
     console.log('Usuario conectado')
-    socket.emit('productos',productos)
+    socket.emit('productos', productos)
+    io.sockets.emit('productos', productos)
+    socket.on('notificacion',data=>{
+        console.log('Se refresco la página')
+    })
 })
